@@ -1,0 +1,7 @@
+<% unless current_user.blank? %>
+  <h1>
+    Welcome, <%= "#{current_user.first_name} #{current_user.last_name}" %>
+  </h1>
+<% else %>
+  <p>Would you like to <%= link_to 'Register', new_user_registration_path %> or <%= link_to 'Sign in', new_user_session_path %></p>
+<% end %>

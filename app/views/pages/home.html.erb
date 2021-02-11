@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <% provide(:title,'Home')%>
+
 <div class = "center jumbotron">
-    <h1>Bienvenido!</h1>
-    <h2> </h2>
+    <% unless current_user.blank? %>
+        <h1>
+            Bienvenido, <%= "#{current_user.name} #{current_user.last_name}" %>
+        </h1>
+
+        <% else %>
+            <h1>
+                Bienvenido 
+            </h1>
+            <p> ¡Veo que no estas registrado! <br>
+            <%= link_to '¡Registrate Aqui!', new_user_registration_path %> <br>
+            Si ya estas registrado <%= link_to '¡Inicia Sesión!', new_user_session_path %>
+        </p>
+    
+    <% end %>
 </div>

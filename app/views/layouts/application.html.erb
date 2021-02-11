@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App2</title>
+  <title>App 2 | <%= (yield(:title) )%></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,9 +11,15 @@
   </head>
 
   <body>
-    <div>
-      <%= render 'layouts/header' %>
+
+  
+  <div>
+  <%= render 'layouts/header' %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
       <%= yield %>
+      <%= debug(params) if Rails.env.development?%>
     </div>
+    
   </body>
 </html>
