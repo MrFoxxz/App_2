@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<% provide(:title,'Nuevo Post')%>
+
+<div class="formularios" id="NewPost">
+<h1>Nuevo Post</h1>
+  <div>
+    <%= form_with(model: @post, local: true) do |f| %>
+
+      <div class="form-group">
+        <%= f.label "Contenido" %>
+        <%= f.text_area :content, :required => true, class: 'form-control' %>
+        <em>(Máximos 140 carácteres )</em>
+      </div>
+
+      <div class="form-group">
+        <%= f.label "Expira el:" %>
+        <%= f.date_select :expiration, class: 'form-control' %>
+      </div>
+
+      <%= f.submit 'Crear nuevo post', class: 'btn btn-primary form-control' %>
+    <% end %>
+  </div>
+</div>
